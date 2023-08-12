@@ -1,4 +1,4 @@
-import './index.css';
+import './css/index.css';
 import Sidebar from './components/Sidebar'
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import Contact from './pages/Contact'; 

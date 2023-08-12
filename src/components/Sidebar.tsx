@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../index.css'
+import '../css/Sidebar.css'
 import { FaHome, FaBookDead, FaComments, FaRegCalendarAlt, FaLaughBeam, FaPalette, FaUserAlt, FaTimes, FaBars, FaMailBulk } from 'react-icons/fa';
 
 function Sidebar() {
