@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../index.css'
-import { FaHome, FaBookDead, FaComments, FaRegCalendarAlt, FaLaughBeam, FaPalette, FaUserAlt, FaTimes, FaBars } from 'react-icons/fa';
+import { FaHome, FaBookDead, FaComments, FaRegCalendarAlt, FaLaughBeam, FaPalette, FaUserAlt, FaTimes, FaBars, FaMailBulk } from 'react-icons/fa';
 
 function Sidebar() {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -31,7 +31,7 @@ function Sidebar() {
         {
             title: "Home",
             icon: <FaHome />,
-            link: "/Home"
+            link: "/"
         },
         {
             title: "Diary",
@@ -57,7 +57,12 @@ function Sidebar() {
             title: "Theme",
             icon: <FaPalette />,
             link: "/Theme"
-        }
+        },
+        {
+          title: "Contact us",
+          icon: <FaMailBulk />,
+          link: "/Contact"
+      }
   ];
 
   return (
