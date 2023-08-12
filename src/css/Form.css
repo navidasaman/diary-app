@@ -1,6 +1,5 @@
 /* ------------- Form component CSS  ------------- */
 .contactForm {
-    background-color: rgba(240, 248, 255, 0.048);
     margin: 50px auto;
     max-width: 300px;
     max-height: 420px;
@@ -27,14 +26,25 @@ form input, textarea {
 
 .formButton {
     height: 30px;
-    width:100px;
+    width:104%;
     background-color: #121212;
-    border-radius: 50px;
-    color:#b3b3b3;
+    color:hsl(0, 0%, 70%);
     border: none;
-    margin: 2%;
+    margin: 2% 0%;
+    letter-spacing: 4px;
+    text-transform: lowercase;
+    font-weight: 100;
 }
 .formButton:hover {
     transition: 0.3s ease;
     opacity: 0.7;
+}
+
+.contactForm h1 {
+    text-transform: lowercase;
+    letter-spacing: 5px;
+    padding-right:12%;
+    font-size: calc(37px - 1vw);
+    font-weight: 100;
+    color: #ffffffc3;
 }

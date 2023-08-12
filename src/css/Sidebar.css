@@ -7,6 +7,8 @@
     height: 100vh;
     width: min(100%, 200px);
     transition: width 0.7s ease;
+    font-weight: 100;
+
   }
   
   .SidebarList :hover {
