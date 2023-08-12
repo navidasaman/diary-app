@@ -34,6 +34,7 @@ form input, textarea {
     letter-spacing: 4px;
     text-transform: lowercase;
     font-weight: 100;
+    cursor: pointer;
 }
 .formButton:hover {
     transition: 0.3s ease;
@@ -47,4 +48,5 @@ form input, textarea {
     font-size: calc(37px - 1vw);
     font-weight: 100;
     color: #ffffffc3;
+    cursor: context-menu;
 }

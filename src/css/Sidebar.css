@@ -8,7 +8,6 @@
     width: min(100%, 200px);
     transition: width 0.7s ease;
     font-weight: 100;
-
   }
   
   .SidebarList :hover {
@@ -20,6 +19,7 @@
     padding:12px;
     display: flex;
     flex-direction: row;
+    cursor: pointer;
   }
   
   .SidebarTitle {
@@ -99,4 +99,5 @@
   .ToggleButton{
     width:100%;  
     text-align: center;
+    cursor: pointer;
   }
