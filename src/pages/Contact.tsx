@@ -1,9 +1,10 @@
 import React from 'react'
+import Form from '../components/Form'
 
 function Contact() {
   return (
     <div>
-      <div className='hello'>Contact page</div>
+      <Form />
     </div>
   )
 }
