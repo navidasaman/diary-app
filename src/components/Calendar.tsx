@@ -73,6 +73,19 @@ function Calendar() {
     }
   };
 
+  // to be able to delete event
+  const handleEventDelete = () => {
+    const updatedEvents = events.filter((event) => event.id !== editEventId); // if the event id does not match with the edited event id it will be filtered out
+    setEvents(updatedEvents); // the events are updated with the filtered array above
+    // the state variables are reset
+    setShowPopup(false);
+    setPopupTitle('');
+    setPopupDescription('');
+    setPopupStartDate('');
+    setPopupEndDate('');
+    setEditEventId('');
+  };
+
  return (
     <div className='calendar'>
       <FullCalendar
@@ -86,8 +99,9 @@ function Calendar() {
         select={handleDateSelect} 
         eventClick={handleEventClick}
         eventContent={(arg) => (
-          <div>
-            <div>{arg.event.title}</div>
+          <div className='single-day-event'>
+              <div className='dot'></div>
+              <div className='title2'>{arg.event.title}</div>
           </div>
         )}
         // shows what the header will contain
@@ -96,14 +110,14 @@ function Calendar() {
           center: 'title',
           end: 'today prev,next', 
         }}
-        height={'84vh'}
+        height={'84.5vh'}
       />
       
       {/* Showcases the popup with its properties */}
       {showPopup && (
         <div className="popup">
           <h1>Information.</h1>
-          <div className="popup-content">
+          <div>
             <input
               type="text"
               value={popupTitle}
@@ -131,6 +145,9 @@ function Calendar() {
             <button onClick={handlePopupSubmit}>
               {editEventId ? 'Update Event' : 'Add Event'}
             </button>
+            {editEventId && (
+              <button onClick={handleEventDelete}>Delete Event</button>
+            )}
             <button onClick={() => setShowPopup(false)}>Cancel</button>
           </div>
         </div>

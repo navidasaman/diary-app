@@ -116,13 +116,6 @@ label {
     cursor: pointer;    
 }
 
-.single-day-event {
-    text-transform: lowercase;
-    padding: 3px;
-    border-radius: 3px;
-    font-size: calc(2px + 1vw);
-}
-
 .single-day-event:hover {
     opacity: 0.8;
 }
@@ -154,3 +147,26 @@ label {
 .calendar button:hover {
     opacity: 0.8;
 }
+
+.single-day-event{
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal-sized columns */
+    gap: 5px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50px;
+    background-color: #3788D8;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.title2 {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
