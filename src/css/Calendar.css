@@ -63,11 +63,13 @@
     background-color: aliceblue;
     padding: 3%;  
     display: grid;
-    place-items: center;
     place-self: center;
+    text-align:left;
     background-image: linear-gradient(rgb(7, 7, 7), rgb(17, 17, 17), rgb(23, 23, 23), rgb(27, 27, 27), rgb(33, 33, 33), rgb(37, 37, 37));
     color: aliceblue;
     z-index: 100;
+    box-shadow:3px 2px 8px rgb(11, 10, 10);
+    border-radius: 10px;;
 }
 
 h1 {
@@ -85,12 +87,12 @@ label {
     display: block;
     text-transform: lowercase;
     letter-spacing: 3px;
-    padding-right:12%;
     font-size: calc(20px - 1vw);
     font-weight: 100;
     color: #ffffffc3;
     cursor: context-menu;
     padding-top: 5%;
+    margin-left: 4px;
 }
 
 .popup textarea, input {
@@ -105,7 +107,7 @@ label {
 
 .popup button {
     height: 30px;
-    width:109%;
+    width:99%;
     background-color: #121212;
     color:hsl(0, 0%, 70%);
     border: none;
