@@ -14,6 +14,7 @@ function Calendar() {
   const [popupDescription, setPopupDescription] = useState('');
   const [popupStartDate, setPopupStartDate] = useState('');
   const [popupEndDate, setPopupEndDate] = useState('');
+  const [editEventId, setEditEventId] = useState('');
 
   // To select date in calendar which is extracted from the arg and stored into the state variabales
   const handleDateSelect = (arg: any) => {
@@ -31,7 +32,45 @@ function Calendar() {
     setPopupStartDate(start.toISOString());
     setPopupEndDate(end.toISOString());
     setPopupDescription(extendedProps.description || '');
+    setEditEventId(id);
     setShowPopup(true);
+  };
+
+  // function which handles the input to submit the edited or newly created event
+  const handlePopupSubmit = () => {
+    // for the code to be submitted the fields must be entered appropriatly
+    if (popupTitle && popupStartDate && popupEndDate) {
+      // Creates an event with the following properties:
+      const newEvent: EventInput = {
+        id: editEventId || new Date().toISOString(),
+        title: popupTitle,
+        start: popupStartDate,
+        end: popupEndDate,
+        allDay: false,
+        extendedProps: {
+          description: popupDescription,
+        },
+      };
+      
+      // To update event if it is being edited otherwise set the new event
+      if (editEventId) {
+        const updatedEvents = events.map((event) => {
+          if (event.id === editEventId) {
+            return { ...event, ...newEvent };
+          }
+          return event;
+        });
+        setEvents(updatedEvents);
+        setEditEventId('');
+      } else {
+        setEvents([...events, newEvent]);
+      }
+      setShowPopup(false);
+      setPopupTitle('');
+      setPopupDescription('');
+      setPopupStartDate('');
+      setPopupEndDate('');
+    }
   };
 
  return (
@@ -64,12 +103,12 @@ function Calendar() {
       {showPopup && (
         <div className="popup">
           <h1>Information.</h1>
-          <div>
+          <div className="popup-content">
             <input
               type="text"
               value={popupTitle}
               onChange={(e) => setPopupTitle(e.target.value)}
-              placeholder="Event name"
+              placeholder="Event"
             />
             <textarea
               style={{ height: '80px' }}
@@ -89,10 +128,16 @@ function Calendar() {
               value={popupEndDate}
               onChange={(e) => setPopupEndDate(e.target.value)}
             />
+            <button onClick={handlePopupSubmit}>
+              {editEventId ? 'Update Event' : 'Add Event'}
+            </button>
             <button onClick={() => setShowPopup(false)}>Cancel</button>
           </div>
         </div>
       )}
+      <button className='addEventsButton' onClick={handleDateSelect} >
+              {editEventId ? 'Update Event' : 'Add Event'}
+      </button>
     </div>
 
   );

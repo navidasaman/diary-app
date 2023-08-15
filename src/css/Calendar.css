@@ -5,6 +5,7 @@
     z-index:2;
     display: grid;
 }
+
 .fc  {
     min-width: (100%, 40%);
     margin: auto;
@@ -30,7 +31,6 @@
     place-items: center;
     place-self: center;
     min-width: (fit-content + 0.5vw);
-    text-align: center;
 }
 
 .fc-timeGridDay-button {
@@ -61,7 +61,7 @@
     height: fit-content;
     z-index:1;
     background-color: aliceblue;
-    padding: 2%;  
+    padding: 3%;  
     display: grid;
     place-items: center;
     place-self: center;
@@ -116,3 +116,41 @@ label {
     cursor: pointer;    
 }
 
+.single-day-event {
+    text-transform: lowercase;
+    padding: 3px;
+    border-radius: 3px;
+    font-size: calc(2px + 1vw);
+}
+
+.single-day-event:hover {
+    opacity: 0.8;
+}
+
+#fc-dom-86 {
+    padding: 0px 10px;
+    text-align: center;
+}
+
+.fc-popover-body {
+    background-color: #121212;
+}
+
+.fc-popover-header {
+    background-color: #2C3E50 !important;
+}
+
+.addEventsButton {
+    background-color: #2C3E50 !important;
+    height: 30px !important;
+    margin: 5px 0 !important;
+    letter-spacing: 4px;
+    text-transform: lowercase;
+    font-weight: 100;
+    cursor: pointer;
+    min-width: 48.5vw !important;
+}
+
+.calendar button:hover {
+    opacity: 0.8;
+}
