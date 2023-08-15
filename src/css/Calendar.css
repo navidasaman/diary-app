@@ -1,13 +1,55 @@
 .calendar {
     width:70vw;
-    margin: auto;
+    margin: 2% auto;
     overflow: visible;
+    z-index:2;
+    display: grid;
 }
 .fc  {
     min-width: (100%, 40%);
     margin: auto;
+    position: relative;
 }
 
 .fc-toolbar-chunk {
     font-size: calc(3px + 1vw);
+}
+
+.calendar button {
+    background-color: #121212;
+    color:hsl(0, 0%, 70%);
+    border: none;
+    margin: 2% 0%;
+    letter-spacing: 4px;
+    text-transform: lowercase;
+    font-weight: 100;
+    cursor: pointer;   
+    font-size:(1px + 1vw);
+    display: grid;
+    place-content: center;
+    place-items: center;
+    place-self: center;
+    min-width: (fit-content + 0.5vw);
+    text-align: center;
+}
+
+.fc-timeGridDay-button {
+    border-bottom-right-radius: 1000px !important;
+    border-top-right-radius: 1000px !important;
+}
+
+.fc-dayGridMonth-button {
+    border-bottom-left-radius: 1000px !important;
+    border-top-left-radius: 1000px !important;
+}
+
+.fc-timeGridWeek-button {
+    border-bottom-right-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+}
+
+.fc--button  {
+    display: none !important;
 }
