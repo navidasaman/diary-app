@@ -53,3 +53,66 @@
 .fc--button  {
     display: none !important;
 }
+
+.popup {
+    position: absolute;
+    overflow: visible;
+    width: min-content;
+    height: fit-content;
+    z-index:1;
+    background-color: aliceblue;
+    padding: 2%;  
+    display: grid;
+    place-items: center;
+    place-self: center;
+    background-image: linear-gradient(rgb(7, 7, 7), rgb(17, 17, 17), rgb(23, 23, 23), rgb(27, 27, 27), rgb(33, 33, 33), rgb(37, 37, 37));
+    color: aliceblue;
+    z-index: 100;
+}
+
+h1 {
+    text-transform: lowercase;
+    letter-spacing: 5px;
+    padding-right:12%;
+    font-size: calc(37px - 1vw);
+    font-weight: 100;
+    color: #ffffffc3;
+    cursor: context-menu;
+    text-align: center;
+}
+
+label {
+    display: block;
+    text-transform: lowercase;
+    letter-spacing: 3px;
+    padding-right:12%;
+    font-size: calc(20px - 1vw);
+    font-weight: 100;
+    color: #ffffffc3;
+    cursor: context-menu;
+    padding-top: 5%;
+}
+
+.popup textarea, input {
+    border: 1px solid #ffffffc3;
+    background-image: linear-gradient(rgb(7, 7, 7), rgb(17, 17, 17), rgb(23, 23, 23), rgb(27, 27, 27), rgb(33, 33, 33), rgb(37, 37, 37));
+    color:#ffffffd2;
+    padding: 5%;
+    margin: 2%;
+    min-width: min-content;
+    width: min-content;
+}
+
+.popup button {
+    height: 30px;
+    width:109%;
+    background-color: #121212;
+    color:hsl(0, 0%, 70%);
+    border: none;
+    margin: 2% 0%;
+    letter-spacing: 4px;
+    text-transform: lowercase;
+    font-weight: 100;
+    cursor: pointer;    
+}
+
