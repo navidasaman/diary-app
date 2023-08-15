@@ -2,7 +2,7 @@ import './css/index.css';
 import Sidebar from './components/Sidebar'
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import Contact from './pages/Contact'; 
-
+import Calendar from './pages/Calendar'; 
 
 function App() {
   return (
@@ -12,6 +12,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/Contact" element={ <Contact /> } />
+          <Route path="/Calendar" element={ <Calendar /> } />
         </Routes>
       </BrowserRouter>
       </header>      

@@ -8,6 +8,7 @@
     background-image: linear-gradient(rgb(7, 7, 7), rgb(17, 17, 17), rgb(23, 23, 23), rgb(27, 27, 27), rgb(33, 33, 33), rgb(37, 37, 37));
     margin:5% 10% 5% 20%;
     font-size: calc(7px + 1vw);
+    overflow: hidden;
 }
 
 form input, textarea {

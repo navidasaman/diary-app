@@ -8,6 +8,7 @@
     width: min(100%, 200px);
     transition: width 0.7s ease;
     font-weight: 100;
+    z-index: 1000;
   }
   
   .SidebarList :hover {

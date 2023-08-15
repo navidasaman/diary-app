@@ -1,0 +1,13 @@
+.calendar {
+    width:70vw;
+    margin: auto;
+    overflow: visible;
+}
+.fc  {
+    min-width: (100%, 40%);
+    margin: auto;
+}
+
+.fc-toolbar-chunk {
+    font-size: calc(3px + 1vw);
+}
