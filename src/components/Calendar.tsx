@@ -94,7 +94,6 @@ function Calendar() {
         selectable={true} // will let the user select time and date
         editable={true} // will let user drag and resize events
         dayMaxEvents={true} // limits number of max events shown in one day
-        navLinks={true} // will enable switching between the views day/week/month
         events={events}
         select={handleDateSelect} 
         eventClick={handleEventClick}
@@ -110,7 +109,7 @@ function Calendar() {
           center: 'title',
           end: 'today prev,next', 
         }}
-        height={'84.5vh'}
+        height={'88.6vh'}
       />
       
       {/* Showcases the popup with its properties */}

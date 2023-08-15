@@ -50,4 +50,6 @@ form input, textarea {
     font-weight: 100;
     color: #ffffffc3;
     cursor: context-menu;
+    display: flex;
+    justify-content: baseline;
 }

@@ -1,6 +1,6 @@
 .calendar {
     width:70vw;
-    margin: 2% auto;
+    margin: 1% auto;
     overflow: visible;
     z-index:2;
     display: grid;
@@ -68,8 +68,7 @@
     background-image: linear-gradient(rgb(7, 7, 7), rgb(17, 17, 17), rgb(23, 23, 23), rgb(27, 27, 27), rgb(33, 33, 33), rgb(37, 37, 37));
     color: aliceblue;
     z-index: 100;
-    box-shadow:3px 2px 8px rgb(11, 10, 10);
-    border-radius: 10px;;
+    border: 1px solid #dddddd45;
 }
 
 h1 {
@@ -97,12 +96,12 @@ label {
 
 .popup textarea, input {
     border: 1px solid #ffffffc3;
-    background-image: linear-gradient(rgb(7, 7, 7), rgb(17, 17, 17), rgb(23, 23, 23), rgb(27, 27, 27), rgb(33, 33, 33), rgb(37, 37, 37));
     color:#ffffffd2;
     padding: 5%;
     margin: 2%;
     min-width: min-content;
     width: min-content;
+    background-color: transparent;
 }
 
 .popup button {

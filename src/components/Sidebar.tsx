@@ -45,11 +45,6 @@ function Sidebar() {
             link: "/Diary"
         },
         {
-            title: "Reminders",
-            icon: <FaComments />,
-            link: "/Reminders"
-        },
-        {
             title: "Calendar",
             icon: <FaRegCalendarAlt />,
             link: "/Calendar"
