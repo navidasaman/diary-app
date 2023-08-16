@@ -3,6 +3,8 @@ import Sidebar from './components/Sidebar'
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import Contact from './pages/Contact'; 
 import Calendar from './pages/Calendar'; 
+import Reminders from './pages/Reminders'; 
+
 
 function App() {
   return (
@@ -11,6 +13,7 @@ function App() {
       <Sidebar />
       <BrowserRouter>
         <Routes>
+          <Route path="/Reminders" element={ <Reminders /> } />
           <Route path="/Contact" element={ <Contact /> } />
           <Route path="/Calendar" element={ <Calendar /> } />
         </Routes>

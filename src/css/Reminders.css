@@ -1,0 +1,49 @@
+.reminders {
+    margin: 50px auto;
+    max-width: 300px;
+    max-height: 420px;
+    padding: 2% 40px;
+    border: 1px solid #dddddd45;
+    background-image: linear-gradient(rgb(7, 7, 7), rgb(17, 17, 17), rgb(23, 23, 23), rgb(27, 27, 27), rgb(33, 33, 33), rgb(37, 37, 37));
+    margin:5% 10% 5% 20%;
+    font-size: calc(7px + 1vw);
+    overflow: hidden;
+}
+
+.reminders h1{
+    text-transform: lowercase;
+    letter-spacing: 5px;
+    padding-right:12%;
+    font-size: calc(37px - 1vw);
+    font-weight: 100;
+    color: #ffffffc3;
+    cursor: context-menu;
+    display: flex;
+    justify-content: baseline;
+}
+
+.addTaskButton {
+    height: 30px;
+    width:104%;
+    background-color: #121212;
+    color:hsl(0, 0%, 70%);
+    border: none;
+    margin: 2% 0%;
+    letter-spacing: 4px;
+    text-transform: lowercase;
+    font-weight: 100;
+    cursor: pointer;
+}
+
+.task {
+    background-color: #212121;
+    padding: 5%;
+    margin:5% 0px;
+    width:94%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.editTask {
+    justify-self: end;
+}

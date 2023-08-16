@@ -13,7 +13,7 @@
   
   .SidebarList :hover {
     color: rgba(240, 248, 255, 0.475);
-    background-color: #12121238;
+    background-color: transparent;
   }
   
   .SidebarRow {
@@ -97,7 +97,7 @@
     display: none;
   }
   
-  .ToggleButton{
+  .menuToggleButton{
     width:100%;  
     text-align: center;
     cursor: pointer;

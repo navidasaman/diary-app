@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../css/Sidebar.css'
-import { FaHome, FaBookDead, FaComments, FaRegCalendarAlt, FaLaughBeam, FaPalette, FaUserAlt, FaTimes, FaBars, FaMailBulk } from 'react-icons/fa';
+import { FaHome, FaBookDead, FaRegCalendarAlt, FaLaughBeam, FaUserAlt, FaTimes, FaBars, FaMailBulk, FaComment } from 'react-icons/fa';
 
 function Sidebar() {
   /*The state variable is set to false as the initial value*/ 
@@ -37,7 +37,7 @@ function Sidebar() {
         {
             title: "Home",
             icon: <FaHome />,
-            link: "/"
+            link: "/Home"
         },
         {
             title: "Diary",
@@ -50,27 +50,27 @@ function Sidebar() {
             link: "/Calendar"
         },
         {
+          title: "Reminders",
+          icon: <FaComment />,
+          link: "/Reminders"
+      },
+        {
             title: "Mood thermometre",
             icon: <FaLaughBeam />,
             link: "/Mood"
         },
         {
-            title: "Theme",
-            icon: <FaPalette />,
-            link: "/Theme"
-        },
-        {
           title: "Contact us",
           icon: <FaMailBulk />,
           link: "/Contact"
-      }
+      },
   ];
 
   /*Returns the sidebar containing the object from the SidebarData array and 
   the toggle button alongside conditions for when the sidebar is collapsed or not */
   return (
     <div className={`Sidebar ${isCollapsed ? 'collapsed' : ''}`}>
-      <button className="ToggleButton" onClick={handleToggleSidebar}>{isCollapsed ? <FaBars /> : <FaTimes />}</button>
+      <button className="menuToggleButton" onClick={handleToggleSidebar}>{isCollapsed ? <FaBars /> : <FaTimes />}</button>
       <div className='MenuContainer'>
         <div className={`MenuTitle ${isCollapsed ? 'collapsed' : ''}`}><FaUserAlt /></div>
       </div>
