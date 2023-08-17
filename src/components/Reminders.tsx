@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import '../css/Reminders.css'
 import { FaEdit, FaRegTrashAlt } from 'react-icons/fa';
 
@@ -7,7 +7,21 @@ function Reminders() {
     // The useHook useState is used for state management of variables to be able to update them
     const [task, setTask] = useState('');
     const [tasks, setTasks] = useState<string[]>([]); // an array of strings called tasks that will have their state set
+    const localStorageData = localStorage.getItem('tasks');
 
+    // Retrieves data from localStorage upon mount
+    useEffect(() => {
+        if (localStorageData) {
+            setTasks(JSON.parse(localStorageData));
+        }
+    }, []);
+    
+    // sets item in localStorage so it doesn't vanish upon refresh
+    useEffect(() => {
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+      }, [tasks]);
+
+    
     const addReminder = (taskReminder: string) => {
         setTasks([...tasks, taskReminder]);  // updates the state variable tasks by adding a new element taskReminder to the array
         setTask('');
@@ -20,7 +34,7 @@ function Reminders() {
         }
         console.log(task)
     };
-
+    
     // returns the form  
     return (
         <div>
