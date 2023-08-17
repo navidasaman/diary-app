@@ -6,7 +6,7 @@
     border: 1px solid #dddddd45;
     background-image: linear-gradient(rgb(7, 7, 7), rgb(17, 17, 17), rgb(23, 23, 23), rgb(27, 27, 27), rgb(33, 33, 33), rgb(37, 37, 37));
     margin:5% 10% 5% 20%;
-    font-size: calc(7px + 1vw);
+    font-size: calc(1px + 1vw);
     overflow: hidden;
 }
 
@@ -22,7 +22,7 @@
     justify-content: baseline;
 }
 
-.addTaskButton {
+.taskButton {
     height: 30px;
     width:104%;
     background-color: #121212;
@@ -33,6 +33,10 @@
     text-transform: lowercase;
     font-weight: 100;
     cursor: pointer;
+}
+
+.taskButton:hover {
+    opacity: 0.8;
 }
 
 .task {

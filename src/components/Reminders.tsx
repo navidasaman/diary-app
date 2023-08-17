@@ -21,6 +21,11 @@ function Reminders() {
         localStorage.setItem('tasks', JSON.stringify(tasks));
       }, [tasks]);
 
+      const clearLocalStorage = () =>{
+        localStorage.removeItem('tasks');
+        setTasks([]);
+      }
+
     
     const addReminder = (taskReminder: string) => {
         setTasks([...tasks, taskReminder]);  // updates the state variable tasks by adding a new element taskReminder to the array
@@ -59,8 +64,11 @@ function Reminders() {
                         </div>
                     ))}
                 </div>
-                <button type="submit" className="addTaskButton">
+                <button type="submit" className="taskButton">
                     Add Task
+                </button>
+                <button type="button" className="taskButton" onClick={clearLocalStorage}>
+                    Clear reminders
                 </button>
             </form>
         </div>
