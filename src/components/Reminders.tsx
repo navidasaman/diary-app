@@ -32,6 +32,7 @@ function Reminders() {
         setTasks([]);
     }
 
+    // Adds a task/reminder
     const addReminder = (taskReminder: string) => {
         const newTask: Task = { task: taskReminder, isCompleted: false }; // creates the object
         setTasks([...tasks, newTask]);  // updates the state variable tasks by adding a new element newTask to the array
@@ -56,6 +57,16 @@ function Reminders() {
         };
       };
 
+    // Event handler function to delete a task according to its index from the tasks array
+    const deleteTask = (index: number): React.MouseEventHandler => {
+        return () => {        
+            const updatedTasks = [...tasks];
+            updatedTasks.splice(index, 1); // removes 1 element (task) with the specified index from the updatedTask array
+            setTasks(updatedTasks);
+        };
+    };
+
+
     // returns the form  
     return (
         <div>
@@ -79,7 +90,7 @@ function Reminders() {
                                 {task.task} {/*that which will be rendered, the task (item in the array) property of the task object*/}
                             <div className='editTask'>
                                 <FaEdit />
-                                <FaRegTrashAlt />
+                                <FaRegTrashAlt onClick={deleteTask(index)} />
                                 <input type="checkbox" className='taskCompletedCheckbox' 
                               onClick={completedTask(index)} />
                             </div>
