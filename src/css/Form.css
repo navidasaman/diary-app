@@ -11,7 +11,7 @@
     overflow: hidden;
 }
 
-form input, textarea {
+form .formInput, textarea {
     display: flex; 
     width:100%;
     height: 35px;

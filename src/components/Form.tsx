@@ -22,8 +22,8 @@ function Form() {
     return (
         <form method='post' /*action="mailto:removedemailforthisrepositoryprivacyreasons@email.com"*/ className="contactForm" onSubmit={handleSubmit}>
             <h1>Contact.</h1>
-            <input type="text" name="name" id="name" placeholder='Name' onChange={(e) => setName(e.target.value)} value={name} />
-            <input type="email" name="email" id="email" placeholder='e-mail@email.com' onChange={(e) => setEmail(e.target.value)} value={email} required />
+            <input className="formInput" type="text" name="name" id="name" placeholder='Name' onChange={(e) => setName(e.target.value)} value={name} />
+            <input className="formInput" type="email" name="email" id="email" placeholder='e-mail@email.com' onChange={(e) => setEmail(e.target.value)} value={email} required />
             <textarea
                 name="message" 
                 id="message"

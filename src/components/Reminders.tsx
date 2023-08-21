@@ -2,11 +2,16 @@ import React, { useState, useEffect } from 'react'
 import '../css/Reminders.css'
 import { FaEdit, FaRegTrashAlt } from 'react-icons/fa';
 
+// Interface to create the wanted structure to the task object
+interface Task {
+    task: string;
+    isCompleted: boolean;
+  }
 
 function Reminders() {
     // The useHook useState is used for state management of variables to be able to update them
     const [task, setTask] = useState('');
-    const [tasks, setTasks] = useState<string[]>([]); // an array of strings called tasks that will have their state set
+    const [tasks, setTasks] = useState<Task[]>([]); // an empty array of Task objects called tasks that will have their state set
     const localStorageData = localStorage.getItem('tasks');
 
     // Retrieves data from localStorage upon mount
@@ -21,17 +26,19 @@ function Reminders() {
         localStorage.setItem('tasks', JSON.stringify(tasks));
       }, [tasks]);
 
-      const clearLocalStorage = () =>{
+    // Clears the localStorage which clears all the tasks from the list
+    const clearLocalStorage = () => {
         localStorage.removeItem('tasks');
         setTasks([]);
-      }
+    }
 
-    
     const addReminder = (taskReminder: string) => {
-        setTasks([...tasks, taskReminder]);  // updates the state variable tasks by adding a new element taskReminder to the array
+        const newTask: Task = { task: taskReminder, isCompleted: false }; // creates the object
+        setTasks([...tasks, newTask]);  // updates the state variable tasks by adding a new element newTask to the array
         setTask('');
     }
 
+    // when a task is submitted
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault(); // prevents refreshing of page and form submission
         if (task !== '') { // verifies that the string isn't empty
@@ -40,6 +47,15 @@ function Reminders() {
         console.log(task)
     };
     
+    // Event handler function to toggle between completed and incompleted tasks according to its index from the tasks array
+    const completedTask = (index: number): React.MouseEventHandler => {
+        return () => {
+          const updatedTasks = [...tasks];
+          updatedTasks[index].isCompleted = !updatedTasks[index].isCompleted;
+          setTasks(updatedTasks);
+        };
+      };
+
     // returns the form  
     return (
         <div>
@@ -55,11 +71,17 @@ function Reminders() {
                 <div> {/* the tasks array is iterated by map() wherein the task variable has its index representation */}
                     {tasks.map((task, index) => (
                         <div className='task'
-                            key={index}>
-                                {task} {/*that which will be rendered*/}
+                            key={index} 
+                            style={{
+                                backgroundColor: task.isCompleted ? 'green' : '',
+                              }}
+                              >
+                                {task.task} {/*that which will be rendered, the task (item in the array) property of the task object*/}
                             <div className='editTask'>
                                 <FaEdit />
                                 <FaRegTrashAlt />
+                                <input type="checkbox" className='taskCompletedCheckbox' 
+                              onClick={completedTask(index)} />
                             </div>
                         </div>
                     ))}
