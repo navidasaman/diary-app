@@ -66,7 +66,6 @@ function Reminders() {
         };
     };
 
-
     // returns the form  
     return (
         <div>
@@ -89,7 +88,7 @@ function Reminders() {
                               >
                                 {task.task} {/*that which will be rendered, the task (item in the array) property of the task object*/}
                             <div className='editTask'>
-                                <FaEdit />
+                                {/* <FaEdit /> */} 
                                 <FaRegTrashAlt onClick={deleteTask(index)} />
                                 <input type="checkbox" className='taskCompletedCheckbox' 
                               onClick={completedTask(index)} />
