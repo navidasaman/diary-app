@@ -1,0 +1,69 @@
+.diaryContainer {
+    min-width: 150px;
+    max-width:1000px;
+    padding:2% 5% 2% 15%;
+}
+
+.textEditor {
+    margin:auto;
+    min-width: 200px;
+    max-width:500px;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(rgb(7, 7, 7), rgb(17, 17, 17), rgb(23, 23, 23), rgb(27, 27, 27), rgb(33, 33, 33), rgb(37, 37, 37));
+    border: 1px solid #dddddd45;
+    padding:2%;
+    margin-top: 1%;
+}
+.submitButton {
+    height: 30px;
+    min-width:(100%, 102%);
+    background-color: #121212;
+    color:hsl(0, 0%, 70%);
+    border: none;
+    margin: 2% 0%;
+    letter-spacing: 4px;
+    text-transform: lowercase;
+    font-weight: 100;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.writingSpace {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100px;
+}
+
+.diaryDesc {
+    text-transform: lowercase;
+    letter-spacing: 5px;
+    padding-right:12%;
+    font-size: calc(37px - 1vw);
+    font-weight: 100;
+    color: #ffffffc3;
+    cursor: context-menu;
+    justify-content: center;
+    margin-bottom: 5%;
+}
+
+.entriesContainer {
+    height: 50vh;
+    padding:10px;
+    background-color: #212121;
+    display: grid;
+    row-gap: 10px;
+    overflow-y: scroll;
+}
+
+.entryDate {
+    font-weight: bolder;
+}
+
+.entryText {
+    margin-left: 10px;
+}

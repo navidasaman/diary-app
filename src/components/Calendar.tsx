@@ -115,7 +115,7 @@ function Calendar() {
       {/* Showcases the popup with its properties */}
       {showPopup && (
         <div className="popup">
-          <h1>Information.</h1>
+          <h1 className="calendarTitle">Information.</h1>
           <div>
             <input
               type="text"

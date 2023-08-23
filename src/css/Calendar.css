@@ -71,7 +71,7 @@
     border: 1px solid #dddddd45;
 }
 
-h1 {
+.popupDesc {
     text-transform: lowercase;
     letter-spacing: 5px;
     padding-right:12%;
