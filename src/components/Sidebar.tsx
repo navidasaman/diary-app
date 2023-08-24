@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../css/Sidebar.css'
-import { FaHome, FaBookDead, FaRegCalendarAlt, FaLaughBeam, FaUserAlt, FaTimes, FaBars, FaMailBulk, FaComment } from 'react-icons/fa';
+import { FaHome, FaBookDead, FaRegCalendarAlt, FaLaughBeam, FaUserAlt, FaTimes, FaBars, FaMailBulk, FaComment, FaPalette } from 'react-icons/fa';
+import SwitchButton from './SwitchButton';
 
 function Sidebar() {
   /*The state variable is set to false as the initial value*/ 
@@ -81,6 +82,20 @@ function Sidebar() {
             <div className={`SidebarTitle ${isCollapsed ? 'collapsed' : ''}`}>{val.title}</div>
           </div>
         ))}
+        <div className='theme'>
+          <div className='SidebarList'>
+            <div className='SidebarRow'>
+              <div className="SidebarIcon"><FaPalette/></div>
+              <div className={`SidebarTitle ${isCollapsed ? 'collapsed' : ''}`}>Theme</div>
+              {!isCollapsed && (
+                <SwitchButton
+                  isCollapsed={isCollapsed}
+                  handleToggleSidebar={handleToggleSidebar}
+                />
+              )}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
