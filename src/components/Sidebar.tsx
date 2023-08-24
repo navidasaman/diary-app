@@ -82,7 +82,6 @@ function Sidebar() {
             <div className={`SidebarTitle ${isCollapsed ? 'collapsed' : ''}`}>{val.title}</div>
           </div>
         ))}
-        <div className='theme'>
           <div className='SidebarList'>
             <div className='SidebarRow'>
               <div className="SidebarIcon"><FaPalette/></div>
@@ -95,7 +94,6 @@ function Sidebar() {
               )}
             </div>
           </div>
-        </div>
       </div>
     </div>
   );

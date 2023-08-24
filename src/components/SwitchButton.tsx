@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import '../css/SwitchButton.css'
 
+// Props to determine if sidebar is collapsed or not
 interface SwitchButtonProps {
   isCollapsed: boolean;
   handleToggleSidebar: () => void;
 }
-
+  // Takes the props and determines the state of the switch
   const SwitchButton: React.FC<SwitchButtonProps> = ({ isCollapsed, handleToggleSidebar }) => {
     const [isChecked, setIsChecked] = useState(true);
 
-    const handleToggle = () => {
+    const handleSwitchToggleButton = () => {
       setIsChecked(!isChecked);
   };
 
@@ -19,7 +20,7 @@ interface SwitchButtonProps {
         className='switchButton'
         type="checkbox"
         checked={isChecked}
-        onChange={handleToggle}
+        onChange={handleSwitchToggleButton}
       />
       <div className="slider" />
     </label>
