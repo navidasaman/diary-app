@@ -52,7 +52,7 @@
 }
 
 .entriesContainer {
-    height: 50vh;
+    height: 40vh;
     padding:10px;
     background-color: #212121;
     display: grid;
@@ -66,4 +66,21 @@
 
 .entryText {
     margin-left: 10px;
+    font-style: italic;
+}
+
+.entryTitle {
+    font-weight: bold;
+}
+
+.diaryTitleInput {
+    width: fit-content;
+    background-color:transparent;
+    border: 1px solid #dddddd45;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    color: rgba(240, 248, 255, 0.61);
+    padding: 10px;
+    margin-left: -3px;
 }
