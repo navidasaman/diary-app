@@ -19,7 +19,7 @@ function App() {
   };
 
   return (
-      <div className={`App ${theme}`}  onClick={toggleTheme}>
+      <div className={`App ${theme}`}  /*onClick={toggleTheme}*/>
         <Sidebar /> 
         <BrowserRouter>
           <Routes>

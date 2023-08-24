@@ -102,7 +102,7 @@
     cursor: pointer;
   }
 
-  div.Sidebar.dark {
+  div.Sidebar {
     background-color: #212121;
     color: rgb(240, 248, 255);
   }
