@@ -2,17 +2,16 @@
 
 .Sidebar {
     position: fixed;
-    background-color: #212121;
-    color: rgb(240, 248, 255);
     height: 100vh;
     width: min(100%, 200px);
     transition: width 0.7s ease;
     font-weight: 100;
     z-index: 1000;
+    box-shadow: 2px 5px 10px #888888;
   }
-  
+
   .SidebarList :hover {
-    color: rgba(240, 248, 255, 0.475);
+    color: 	#828393;
     background-color: transparent;
   }
   
@@ -101,4 +100,14 @@
     width:100%;  
     text-align: center;
     cursor: pointer;
+  }
+
+  div.Sidebar.dark {
+    background-color: #212121;
+    color: rgb(240, 248, 255);
+  }
+  
+  div.Sidebar.light {
+    background-color: #d2d3db;
+    color:#121212;
   }
