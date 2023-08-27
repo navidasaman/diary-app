@@ -123,10 +123,8 @@
 
   div.Sidebar.greenblue {
     background-color: #007db323;
-    color: antiquewhite;
-  }
+    color: rgb(240, 248, 255);  }
 
   div.Sidebar.purple {
     background-color: #ba68c865;
-    color: antiquewhite
-  }
+    color: rgb(240, 248, 255);  }

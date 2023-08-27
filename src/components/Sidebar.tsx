@@ -7,7 +7,7 @@ function Sidebar() {
 
   /*The state variable is set to false as the initial value*/ 
   const [isCollapsed, setIsCollapsed] = useState(false);
-  const [theme, setTheme] = useState('dark')
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'dark');
 
   /*To be able to toggle the sidebar between true and false to collapse/expand it */
   const handleToggleSidebar = () => {
@@ -16,12 +16,14 @@ function Sidebar() {
   };
 
   const toggleTheme = () =>{
-    setTheme((curr) => (
+    setTheme((curr) => {
+      const themeColor =
       curr === 'dark' ? 'light' :
       curr === 'light' ? 'greenblue' :
-      curr === 'greenblue' ? 'purple' :
-      'dark'
-    ));
+      curr === 'greenblue' ? 'purple' : 'dark';
+      localStorage.setItem('theme', themeColor); 
+      return themeColor;
+  });
   };
 
   /* the useEffect hook is used alongside an event listener to automatically collapse 
