@@ -6,15 +6,20 @@ import { FaHome, FaBookDead, FaRegCalendarAlt, FaLaughBeam, FaUserAlt, FaTimes, 
 function Sidebar() {
 
   /*The state variable is set to false as the initial value*/ 
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(localStorage.getItem('isCollapsed') === 'true');
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'dark');
 
   /*To be able to toggle the sidebar between true and false to collapse/expand it */
   const handleToggleSidebar = () => {
     setIsCollapsed(!isCollapsed);
-    console.log(isCollapsed);
   };
 
+  // Saves the collapsed state
+  useEffect(() => {
+    localStorage.setItem('isCollapsed', String(isCollapsed));
+  }, [isCollapsed]);
+
+  // Toggles between theme colors
   const toggleTheme = () =>{
     setTheme((curr) => {
       const themeColor =
