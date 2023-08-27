@@ -7,7 +7,7 @@
     transition: width 0.7s ease;
     font-weight: 100;
     z-index: 1000;
-    box-shadow: 2px 5px 10px #888888;
+    box-shadow: 6px 1px 15px 1px rgba(0, 0, 0, 0.8);
   }
 
   .SidebarList :hover {
@@ -100,6 +100,13 @@
     width:100%;  
     text-align: center;
     cursor: pointer;
+    background-color: black;
+    color: #d2d3db;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:2%;
   }
 
   div.Sidebar {
@@ -110,4 +117,16 @@
   div.Sidebar.light {
     background-color: #d2d3db;
     color:#121212;
+    box-shadow: 6px 1px 15px 1px rgba(246, 239, 229, 0.333);
+
+  }
+
+  div.Sidebar.greenblue {
+    background-color: #007db323;
+    color: antiquewhite;
+  }
+
+  div.Sidebar.purple {
+    background-color: #ba68c865;
+    color: antiquewhite
   }

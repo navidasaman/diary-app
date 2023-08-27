@@ -16,7 +16,12 @@ function Sidebar() {
   };
 
   const toggleTheme = () =>{
-    setTheme((curr) => (curr === 'dark' ? 'light' : 'dark'));
+    setTheme((curr) => (
+      curr === 'dark' ? 'light' :
+      curr === 'light' ? 'greenblue' :
+      curr === 'greenblue' ? 'purple' :
+      'dark'
+    ));
   };
 
   /* the useEffect hook is used alongside an event listener to automatically collapse 
