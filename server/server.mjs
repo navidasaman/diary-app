@@ -28,12 +28,20 @@ connection.connect((err) => {
     console.log('Connected to MySQL database');
 });
 
-// route handler; callback function for when the initial route is reached the required function returns this message via HTTP GET to "/" and back to the client
-app.get('/', (req, res)=> {
-    res.send('initial route is reached server.mjs')
-    //res.json({ message: 'initial route is reached server.mjs' });
-
-});
+// Route handler for the HTTP GET request at /api/get endpoint
+app.get('/api/get', (req, res) => {
+    // Retrieves everything from the [edited out, sensitive data] table (to be able to showcase it, see component DiaryPosts.tsx)
+    const query = "SELECT * FROM [edited out, sensitive data]";
+    // Catches error
+    connection.query(query, (err, result) => {
+      if (err) {
+        console.error('Following error found when executing MySQL query: ', err);
+        res.status(500).send('Error in executing MySQL query');
+        return;
+      }  
+      res.json(result);
+    });
+  });
 
 // Route handler for the URL /api/create executing a POST request with request body values inserted into database (also see react component DiaryEntry.tsx)
 app.post('/api/create', (req, res) => {
@@ -53,7 +61,6 @@ app.post('/api/create', (req, res) => {
         res.status(500).send('Error in executing MySQL query');
         return;
       }
-  
       console.log('Query entry was added successfully');
       res.json({ message: 'Query entry was added successfully' });
       id++; // Increments the id after each post so it recieves a unique id

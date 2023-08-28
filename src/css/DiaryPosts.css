@@ -1,0 +1,66 @@
+.titleContainer {
+    border: 1px solid grey;
+    max-width:500px; 
+    margin: auto;
+    padding:2%;
+    background-image: linear-gradient(rgb(7, 7, 7), rgb(17, 17, 17), rgb(23, 23, 23), rgb(27, 27, 27), rgb(33, 33, 33), rgb(37, 37, 37));
+}
+
+.containerTitle{
+    text-transform: lowercase;
+    letter-spacing: 5px;
+    font-size: calc(37px - 1vw);
+    font-weight: 100;
+    text-align: center;
+    text-decoration: 1px underline wavy;
+    font-style: italic;
+    text-underline-offset: 8px;
+    margin-bottom: 5%;
+}
+.PostContainer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+    height:fit-content;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    overflow-y: auto;
+    overflow-x:hidden;
+}
+
+.Post {
+    min-width: calc(100% - 60px);
+    margin:5px;
+    border: 1px solid #ffffffc3;
+    border-radius: 10px;;
+    padding:5%;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: #21212116;
+}
+
+.date {
+    text-transform: lowercase;
+    letter-spacing: 3px;
+    font-size: calc(27px - 1vw);
+    font-weight: 100;
+    font-style: italic;
+    text-align: center;
+    
+}
+
+.title{
+    text-transform: lowercase;
+    letter-spacing: 3px;
+    font-size: calc(37px - 1vw);
+    font-weight: 100;
+    text-align: center;
+
+}
+
+.postContent {
+    color: #ffffffc3;
+    text-align: justify;
+    font-style: italic;
+}
