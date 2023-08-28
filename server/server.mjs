@@ -51,7 +51,7 @@ app.post('/api/create', (req, res) => {
     const date = req.body.date;
   
     // Inserts the request body values + id into database via a query
-    const query = `INSERT INTO diaryentry (id, title, post, date) VALUES (?, ?, ?, ?)`;
+    const query = `INSERT INTO [edited out, sensitive data] (id, title, post, date) VALUES (?, ?, ?, ?)`;
     const values = [id, title, post, date];
 
     // catches query errors
@@ -61,12 +61,30 @@ app.post('/api/create', (req, res) => {
         res.status(500).send('Error in executing MySQL query');
         return;
       }
+  
       console.log('Query entry was added successfully');
       res.json({ message: 'Query entry was added successfully' });
       id++; // Increments the id after each post so it recieves a unique id
     });
   });
   
+  // Route handler for delete request at the specified endpoint with 
+  app.delete('/api/delete/:id', (req, res) => {
+    const id = req.params.id; // rq.params  object contains the values of the route parameter wherein the id is retrieved
+    const query = `DELETE FROM [edited out, sensitive data] WHERE id = ?`;
+    const values = [id];
+    //Cathes error
+    connection.query(query, values, (err, result) => {
+      if (err) {
+        console.error('Error executing MySQL query:', err);
+        res.status(500).send('Error executing MySQL query');
+        return;
+      }
+      console.log('Delete successful');
+      res.json({ message: 'Delete successful' });
+    });
+  });
+
 // Starts Express app and listens for incoming requests on the specified port in the PORT variable
 app.listen(PORT, () => {
     console.log(`app.listen PORT () =>: Server is running on port ${PORT}`);
