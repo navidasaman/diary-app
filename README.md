@@ -3,6 +3,7 @@
 
 ### < Diary />
 <img width="715" alt="image" src="https://github.com/navidasaman/diary-app/assets/119083568/2c338d17-bcdc-4f59-9af0-efa182a45fca">
+> Posts are added and deleted through MySQL database connection.
 
 ### < Calendar />
 <img width="814" alt="image" src="https://github.com/navidasaman/diary-app/assets/119083568/738094cd-d827-432d-993c-d8788a6e7ef4">
