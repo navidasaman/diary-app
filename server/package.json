@@ -4,15 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.tsx", 
-    "devStart": "nodemon index.tsx" 
+    "start": "node server.mjs",
+    "devStart": "nodemon server.mjs"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "type": "module",
   "dependencies": {
+    "@types/mysql": "^2.15.21",
     "cors": "^2.8.5",
     "express": "^4.18.2",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.6.0",
+    "node-fetch": "^3.3.2",
     "nodemon": "^3.0.1"
   }
 }
