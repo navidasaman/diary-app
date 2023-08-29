@@ -142,7 +142,7 @@ label {
     text-transform: lowercase;
     font-weight: 100;
     cursor: pointer;
-    min-width: 48.5vw !important;
+    min-width: 64% !important;
 }
 
 .calendar button:hover {
@@ -171,3 +171,14 @@ label {
     align-self: center;
 }
 
+.calendarTitle{
+    text-transform: lowercase;
+    letter-spacing: 5px;
+    padding-right:12%;
+    font-size: calc(37px - 1vw);
+    font-weight: 100;
+    color: #ffffffc3;
+    cursor: context-menu;
+    display: flex;
+    justify-content: baseline;
+}
