@@ -2,9 +2,10 @@
 ## Thus far:
 
 ### < Diary />
-<img width="715" alt="image" src="https://github.com/navidasaman/diary-app/assets/119083568/2c338d17-bcdc-4f59-9af0-efa182a45fca">
+<img width="718" alt="image" src="https://github.com/navidasaman/diary-app/assets/119083568/c9f74a38-069e-4c90-8963-1c5b52786d67"> <img width="752" alt="image" src="https://github.com/navidasaman/diary-app/assets/119083568/41d001c5-9f17-4597-8573-a7a95a5e28d0">
 
-> Posts are added and deleted through MySQL database connection.
+
+> Posts are added, deleted and edited through MySQL database connection.
 
 ### < Calendar />
 <img width="814" alt="image" src="https://github.com/navidasaman/diary-app/assets/119083568/738094cd-d827-432d-993c-d8788a6e7ef4"> <img width="428" alt="image" src="https://github.com/navidasaman/diary-app/assets/119083568/a09fe532-b000-470e-9ba5-efdcf55a2844"> <img width="422" alt="image" src="https://github.com/navidasaman/diary-app/assets/119083568/ce34d5ae-cfe6-4333-87ec-d53b1bfc0ee0">
