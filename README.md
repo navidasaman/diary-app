@@ -7,12 +7,14 @@
 > Posts are added and deleted through MySQL database connection.
 
 ### < Calendar />
-<img width="814" alt="image" src="https://github.com/navidasaman/diary-app/assets/119083568/738094cd-d827-432d-993c-d8788a6e7ef4"> <img width="434" alt="image" src="https://github.com/navidasaman/diary-app/assets/119083568/741fb2ce-ef0a-4b0d-88a0-562d9f1063b3"> <img width="428" alt="image" src="https://github.com/navidasaman/diary-app/assets/119083568/85003c6c-a666-442d-9cc3-499a014e2c33">
+<img width="814" alt="image" src="https://github.com/navidasaman/diary-app/assets/119083568/738094cd-d827-432d-993c-d8788a6e7ef4"> <img width="428" alt="image" src="https://github.com/navidasaman/diary-app/assets/119083568/a09fe532-b000-470e-9ba5-efdcf55a2844"> <img width="422" alt="image" src="https://github.com/navidasaman/diary-app/assets/119083568/ce34d5ae-cfe6-4333-87ec-d53b1bfc0ee0">
+
+
 
 > Events can be updated and added.
 
 ### < Reminders />
-<img width="476" alt="image" src="https://github.com/navidasaman/diary-app/assets/119083568/3074db7d-87e5-48ef-8765-c0f1a14f4054">
+<img width="470" alt="image" src="https://github.com/navidasaman/diary-app/assets/119083568/a630ee0e-2fe0-4320-988e-7b2109cc4e18">
 
 > Reminders/tasks may be added, deleted or checked.
 
