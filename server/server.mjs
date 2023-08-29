@@ -34,14 +34,14 @@ app.get('/api/get', (req, res) => {
     const query = "SELECT * FROM [edited out, sensitive data]";
     // Catches error
     connection.query(query, (err, result) => {
-      if (err) {
-        console.error('Following error found when executing MySQL query: ', err);
-        res.status(500).send('Error in executing MySQL query');
-        return;
-      }  
-      res.json(result);
+        if (err) {
+            console.error('Following error found when executing MySQL query: ', err);
+            res.status(500).send('Error in executing MySQL query');
+            return;
+        }
+        res.json(result);
     });
-  });
+});
 
 // Route handler for the URL /api/create executing a POST request with request body values inserted into database (also see react component DiaryEntry.tsx)
 app.post('/api/create', (req, res) => {
@@ -49,41 +49,78 @@ app.post('/api/create', (req, res) => {
     const title = req.body.title;
     const post = req.body.post;
     const date = req.body.date;
-  
+
     // Inserts the request body values + id into database via a query
     const query = `INSERT INTO [edited out, sensitive data] (id, title, post, date) VALUES (?, ?, ?, ?)`;
     const values = [id, title, post, date];
 
     // catches query errors
     connection.query(query, values, (err, result) => {
-      if (err) {
-        console.error('Error in executing MySQL query:', err);
-        res.status(500).send('Error in executing MySQL query');
-        return;
-      }
-  
-      console.log('Query entry was added successfully');
-      res.json({ message: 'Query entry was added successfully' });
-      id++; // Increments the id after each post so it recieves a unique id
+        if (err) {
+            console.error('Error in executing MySQL query:', err);
+            res.status(500).send('Error in executing MySQL query');
+            return;
+        }
+
+        console.log('Query entry was added successfully');
+        res.json({ message: 'Query entry was added successfully' });
+        id++; // Increments the id after each post so it recieves a unique id
     });
-  });
-  
-  // Route handler for delete request at the specified endpoint with 
-  app.delete('/api/delete/:id', (req, res) => {
+});
+
+// Route handler for delete request at the specified endpoint with 
+app.delete('/api/delete/:id', (req, res) => {
     const id = req.params.id; // rq.params  object contains the values of the route parameter wherein the id is retrieved
     const query = `DELETE FROM [edited out, sensitive data] WHERE id = ?`;
     const values = [id];
     //Cathes error
     connection.query(query, values, (err, result) => {
-      if (err) {
-        console.error('Error executing MySQL query:', err);
-        res.status(500).send('Error executing MySQL query');
-        return;
-      }
-      console.log('Delete successful');
-      res.json({ message: 'Delete successful' });
+        if (err) {
+            console.error('Error executing MySQL query:', err);
+            res.status(500).send('Error executing MySQL query');
+            return;
+        }
+        console.log('Delete successful');
+        res.json({ message: 'Delete successful' });
     });
-  });
+});
+
+// Route handler for PUT request at the specified endpoint for specific post with specific id
+app.put('/api/edit/:id', (req, res) => {
+    // Extracts the id, updated title and updated post content from the request body
+    const postId = req.params.id;
+    const updatedTitle = req.body.title;
+    const updatedContent = req.body.content;
+
+    // if the post with the specific id exists the query updates the post
+    if (postId) {
+        const editQuery = 'UPDATE  [edited out, sensitive data] SET title = ?, post = ? WHERE id = ?';
+        const editValues = [updatedTitle, updatedContent, postId];
+        // Query result handling
+        connection.query(editQuery, editValues, (err, result) => {
+            if (err) {
+                console.error('Error in editing MySQL query:', err);
+                res.status(500).send('Error in editing MySQL query');
+                return;
+            }
+            console.log('Edit successful');
+            res.json({ message: 'Edit successful' });
+        });
+    } else { // or else a new post will be made if the existing id does not exist to be updated
+        const createQuery = 'INSERT INTO  [edited out, sensitive data] (title, post) VALUES (?, ?)';
+        const createValues = [updatedTitle, updatedContent];
+
+        connection.query(createQuery, createValues, (err, result) => {
+            if (err) {
+                console.error('Error in creating MySQL query:', err);
+                res.status(500).send('Error in creating MySQL query');
+                return;
+            }
+            console.log('Create successful');
+            res.json({ message: 'Create successful' });
+        });
+    }
+});
 
 // Starts Express app and listens for incoming requests on the specified port in the PORT variable
 app.listen(PORT, () => {
