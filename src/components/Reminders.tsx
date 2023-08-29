@@ -84,6 +84,24 @@ function Reminders() {
         };
     };
 
+    // Drag & drop reminders
+    const handleDragStart = (e: React.DragEvent<HTMLDivElement>, index: number) => {
+      e.dataTransfer.setData('text/plain', index.toString());
+    };
+    
+    const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
+      e.preventDefault();
+    };
+    
+    const handleDrop = (e: React.DragEvent<HTMLDivElement>, index: number) => {
+      e.preventDefault();
+      const draggedIndex = Number(e.dataTransfer.getData('text/plain'));
+      const updatedTasks = [...tasks];
+      const [draggedTask] = updatedTasks.splice(draggedIndex, 1);
+      updatedTasks.splice(index, 0, draggedTask);
+      setTasks(updatedTasks);
+    };
+
     // returns the form  
     return (
         <div className='remindersContainer'>
@@ -98,7 +116,10 @@ function Reminders() {
                 />
                 <div> {/* the tasks array is iterated by map() wherein the task variable has its index representation */}
                     {tasks.map((task, index) => (
-                        <div className='task'
+                        <div className='task' draggable
+                            onDragStart={(e) => handleDragStart(e, index)}
+                            onDragOver={(e) => handleDragOver(e)}
+                            onDrop={(e) => handleDrop(e, index)}
                             key={index} 
                             style={{
                                 backgroundColor: task.isCompleted ? 'green' : '',

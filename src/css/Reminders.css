@@ -15,6 +15,7 @@
     overflow-y:auto;
     overflow-x: hidden;
     scrollbar-color: green;
+    cursor: grab;
 }
 
 .reminders h1{
@@ -62,12 +63,14 @@
     align-items: center;
     gap:10px;
     transform: scale(0.9);
+    cursor: pointer;
 }
 
 .taskCompletedCheckbox {
     display: flex;
     transform: scale(1.25);
     align-items: center;
+    cursor: pointer;
 }
 
 .reminder-input {
@@ -82,5 +85,7 @@
     border-left: none;
     border-right: none;
     color: rgba(240, 248, 255, 0.61);
+    cursor: pointer;
+
 }
 
