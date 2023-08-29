@@ -6,6 +6,11 @@
     display: grid;
 }
 
+.calendarUI {
+    width:max-content;
+    margin: auto;
+}
+
 .fc  {
     min-width: (100%, 40%);
     margin: auto;
@@ -142,7 +147,7 @@ label {
     text-transform: lowercase;
     font-weight: 100;
     cursor: pointer;
-    min-width: 64% !important;
+    min-width: 100% !important;
 }
 
 .calendar button:hover {

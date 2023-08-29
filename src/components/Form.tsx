@@ -20,6 +20,7 @@ function Form() {
 
     /*Returns the contact form*/ 
     return (
+    <div className="formContainer">
         <form method='post' /*action="mailto:removedemailforthisrepositoryprivacyreasons@email.com"*/ className="contactForm" onSubmit={handleSubmit}>
             <h1>Contact.</h1>
             <input className="formInput" type="text" name="name" id="name" placeholder='Name' onChange={(e) => setName(e.target.value)} value={name} />
@@ -34,6 +35,7 @@ function Form() {
             ></textarea>            
             <button className="formButton" type='submit'>Contact us</button>
         </form>
+    </div>
     )
 }
 

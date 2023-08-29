@@ -88,30 +88,34 @@ function Calendar() {
 
  return (
     <div className='calendar'>
-      <FullCalendar
-        plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
-        initialView="dayGridMonth"
-        selectable={true} // will let the user select time and date
-        editable={true} // will let user drag and resize events
-        dayMaxEvents={true} // limits number of max events shown in one day
-        events={events}
-        select={handleDateSelect} 
-        eventClick={handleEventClick}
-        eventContent={(arg) => (
-          <div className='single-day-event'>
-              <div className='dot'></div>
-              <div className='title2'>{arg.event.title}</div>
-          </div>
-        )}
-        // shows what the header will contain
-        headerToolbar={{
-          start: 'dayGridMonth, timeGridWeek, timeGridDay', 
-          center: 'title',
-          end: 'today prev,next', 
-        }}
-        height={'88.6vh'}
-      />
-      
+      <div className='calendarUI'>
+        <FullCalendar
+          plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
+          initialView="dayGridMonth"
+          selectable={true} // will let the user select time and date
+          editable={true} // will let user drag and resize events
+          dayMaxEvents={true} // limits number of max events shown in one day
+          events={events}
+          select={handleDateSelect} 
+          eventClick={handleEventClick}
+          eventContent={(arg) => (
+            <div className='single-day-event'>
+                <div className='dot'></div>
+                <div className='title2'>{arg.event.title}</div>
+            </div>
+          )}
+          // shows what the header will contain
+          headerToolbar={{
+            start: 'dayGridMonth, timeGridWeek, timeGridDay', 
+            center: 'title',
+            end: 'today prev,next', 
+          }}
+          height={'88.6vh'}
+        />
+              <button className='addEventsButton' onClick={handleDateSelect} >
+                {editEventId ? 'Update Event' : 'Add Event'}
+        </button>
+      </div>
       {/* Showcases the popup with its properties */}
       {showPopup && (
         <div className="popup">
@@ -151,9 +155,6 @@ function Calendar() {
           </div>
         </div>
       )}
-      <button className='addEventsButton' onClick={handleDateSelect} >
-              {editEventId ? 'Update Event' : 'Add Event'}
-      </button>
     </div>
 
   );

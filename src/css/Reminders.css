@@ -1,7 +1,12 @@
+.remindersContainer {
+    display: flex;
+    justify-content: center;
+}
+
 .reminders {
     margin: 50px auto;
-    max-width: 300px;
-    max-height: 420px;
+    width: 300px;
+    max-height: 100%;
     padding: 2% 40px;
     border: 1px solid #dddddd45;
     background-image: linear-gradient(rgb(7, 7, 7), rgb(17, 17, 17), rgb(23, 23, 23), rgb(27, 27, 27), rgb(33, 33, 33), rgb(37, 37, 37));

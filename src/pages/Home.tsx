@@ -1,11 +1,16 @@
 import React from 'react'
 import '../css/Home.css'
+import { FaSkullCrossbones } from 'react-icons/fa';
+
 
 function Home() {
   return (
-    <div className='home'>
-      Hello world!
+    <div className='homeContainer'>
+      <div className='home'>
+        < FaSkullCrossbones />  My Planner. < FaSkullCrossbones />
+      </div>
     </div>
+
   )
 }
 

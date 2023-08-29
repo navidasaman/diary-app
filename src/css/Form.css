@@ -1,6 +1,10 @@
 /* ------------- Form component CSS  ------------- */
+.formContainer{
+    width: min(100%, 500px);
+    margin: auto;
+}
+
 .contactForm {
-    margin: 50px auto;
     max-width: 300px;
     max-height: 420px;
     padding: 2% 40px;

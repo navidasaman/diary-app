@@ -98,7 +98,7 @@
     border: 1px solid #dddddd45;
     padding: 3%;
     background-image: linear-gradient(rgb(7, 7, 7), rgb(17, 17, 17), rgb(23, 23, 23), rgb(27, 27, 27), rgb(33, 33, 33), rgb(37, 37, 37));
-    min-width: calc(100% - 1150px);
+    min-width: calc(100% - 1100px);
     min-height: fit-content;
 }
 

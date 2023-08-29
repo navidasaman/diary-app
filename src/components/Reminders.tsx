@@ -68,7 +68,7 @@ function Reminders() {
 
     // returns the form  
     return (
-        <div>
+        <div className='remindersContainer'>
             <form className="reminders" onSubmit={handleSubmit} >
                 <h1>Reminders.</h1>
                 <input

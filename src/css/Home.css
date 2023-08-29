@@ -1,5 +1,9 @@
 .home {
     text-align: center;
-    font-size:100px;
-    margin: auto;
+    font-size:3vw;
+    margin: 5% auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
 }

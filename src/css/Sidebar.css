@@ -3,7 +3,7 @@
 .Sidebar {
     position: fixed;
     height: 100vh;
-    width: min(100%, 200px);
+    width:  max-content;
     transition: width 0.7s ease;
     font-weight: 100;
     z-index: 1000;
@@ -20,12 +20,14 @@
     display: flex;
     flex-direction: row;
     cursor: pointer;
+    align-items: center;
   }
   
   .SidebarTitle {
     padding-left:15px;
     max-width: min(100%, 150px);
     font-size: calc(5px + 1.6vmin);
+    
   }
   
   .MenuContainer {
@@ -118,7 +120,6 @@
     background-color: #d2d3db;
     color:#121212;
     box-shadow: 6px 1px 15px 1px rgba(246, 239, 229, 0.333);
-
   }
 
   div.Sidebar.greenblue {
