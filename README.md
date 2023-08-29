@@ -17,7 +17,7 @@
 ### < Reminders />
 <img width="470" alt="image" src="https://github.com/navidasaman/diary-app/assets/119083568/a630ee0e-2fe0-4320-988e-7b2109cc4e18">
 
-> Reminders/tasks may be added, deleted or checked.
+> Reminders/tasks may be added, deleted edited or checked.
 
 ### < Contact page />
 <img width="479" alt="image" src="https://github.com/navidasaman/diary-app/assets/119083568/da34a4b6-b43a-4582-a348-6834c50f48b5">

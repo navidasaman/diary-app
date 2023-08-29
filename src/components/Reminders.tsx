@@ -12,6 +12,7 @@ function Reminders() {
     // The useHook useState is used for state management of variables to be able to update them
     const [task, setTask] = useState('');
     const [tasks, setTasks] = useState<Task[]>([]); // an empty array of Task objects called tasks that will have their state set
+    const [editIndex, setEditIndex] = useState<number>(-1);
     const localStorageData = localStorage.getItem('tasks');
 
     // Retrieves data from localStorage upon mount
@@ -41,12 +42,29 @@ function Reminders() {
 
     // when a task is submitted
     const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault(); // prevents refreshing of page and form submission
-        if (task !== '') { // verifies that the string isn't empty
-            addReminder(task); // adds task to tasks
-        }
-        console.log(task)
+        e.preventDefault();
+    if (task !== '') {
+      if (editIndex !== -1) { // This checks if the variable is not -1 to detrmine if a new post is being added or if it is being edited.
+        const updatedTasks = [...tasks];
+        updatedTasks[editIndex].task = task;
+        setTasks(updatedTasks);
+        setEditIndex(-1);
+      } else {
+        addReminder(task);
+      }
+      setTask('');
+      }
     };
+
+    // Edits task by opening up a prompt to edit task in the tasks array
+    const handleEditTask = (index: number) => {
+        const updatedTask = prompt('Edit task:', tasks[index].task);
+        if (updatedTask) {
+          const updatedTasks = [...tasks];
+          updatedTasks[index].task = updatedTask;
+          setTasks(updatedTasks);
+        }
+      };
     
     // Event handler function to toggle between completed and incompleted tasks according to its index from the tasks array
     const completedTask = (index: number): React.MouseEventHandler => {
@@ -88,7 +106,7 @@ function Reminders() {
                               >
                                 {task.task} {/*that which will be rendered, the task (item in the array) property of the task object*/}
                             <div className='editTask'>
-                                {/* <FaEdit /> */} 
+                                <FaEdit onClick={() => handleEditTask(index)} /> 
                                 <FaRegTrashAlt onClick={deleteTask(index)} />
                                 <input type="checkbox" className='taskCompletedCheckbox' 
                               onClick={completedTask(index)} />
