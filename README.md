@@ -1,3 +1,34 @@
+# Diary app
+## Thus far:
+
+### < Diary />
+<img width="715" alt="image" src="https://github.com/navidasaman/diary-app/assets/119083568/2c338d17-bcdc-4f59-9af0-efa182a45fca">
+
+> Posts are added and deleted through MySQL database connection.
+
+### < Calendar />
+<img width="814" alt="image" src="https://github.com/navidasaman/diary-app/assets/119083568/738094cd-d827-432d-993c-d8788a6e7ef4"> <img width="428" alt="image" src="https://github.com/navidasaman/diary-app/assets/119083568/a09fe532-b000-470e-9ba5-efdcf55a2844"> <img width="422" alt="image" src="https://github.com/navidasaman/diary-app/assets/119083568/ce34d5ae-cfe6-4333-87ec-d53b1bfc0ee0">
+
+
+
+> Events can be updated and added.
+
+### < Reminders />
+<img width="470" alt="image" src="https://github.com/navidasaman/diary-app/assets/119083568/a630ee0e-2fe0-4320-988e-7b2109cc4e18">
+
+> Reminders/tasks may be added, deleted or checked.
+
+### < Contact page />
+<img width="479" alt="image" src="https://github.com/navidasaman/diary-app/assets/119083568/da34a4b6-b43a-4582-a348-6834c50f48b5">
+
+> Contact form page.
+
+### 4 different themes
+<img width="113" alt="image" src="https://github.com/navidasaman/diary-app/assets/119083568/fd7e9d90-27b8-4185-b36e-2a03a615f4a2"> <img width="117" alt="image" src="https://github.com/navidasaman/diary-app/assets/119083568/403c992a-2a59-4900-a888-8268ce804014"> <img width="116" alt="image" src="https://github.com/navidasaman/diary-app/assets/119083568/18c0ed4c-8bfe-4d80-874f-7580910705f8"> <img width="111" alt="image" src="https://github.com/navidasaman/diary-app/assets/119083568/265bcad1-b184-490c-9daa-f74f397d7f40">
+
+> 4 themes are available to toggle between.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
