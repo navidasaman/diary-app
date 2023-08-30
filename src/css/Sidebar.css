@@ -3,11 +3,11 @@
 .Sidebar {
     position: fixed;
     height: 100vh;
-    width:  max-content;
     transition: width 0.7s ease;
     font-weight: 100;
     z-index: 1000;
     box-shadow: 6px 1px 15px 1px rgba(0, 0, 0, 0.8);
+    letter-spacing: 3px;
   }
 
   .SidebarList :hover {
@@ -25,9 +25,7 @@
   
   .SidebarTitle {
     padding-left:15px;
-    max-width: min(100%, 150px);
-    font-size: calc(5px + 1.6vmin);
-    
+    font-size: calc(5px + 1.6vmin);    
   }
   
   .MenuContainer {

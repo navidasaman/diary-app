@@ -1,13 +1,97 @@
-.home {
-    text-align: center;
+.homeContainer {
     font-size:3vw;
-    margin: 5% auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    letter-spacing: 4px;
-    text-transform: lowercase;
-    font-weight: 100;
-    color:hsl(0, 0%, 80%);
+    margin: auto;
 }
+
+ul {
+    display:inline-block;
+    list-style-type: circle;
+    text-align:left;
+    justify-content: center;
+    font-size: 18px;
+    text-align: justify;
+    width: 320px;
+    text-align: left;
+    text-transform: lowercase;
+    letter-spacing: 4px;
+    border: 1px solid #dddddd45;
+    padding: 12%;
+    margin-left: -10%;
+    background-color: #23232350;
+    border-radius: 10px;
+    gap:20px;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Petemoss&display=swap");
+
+.list {
+    display: grid;
+    margin-bottom: 1%;
+    font-family: Cinzel;
+    font-weight:700;
+}
+
+.planner > div {
+	height: 100vh;
+	width: calc((100vh) / (1.4));
+	background-color: #0a0a0a;
+	transform: scale(0.7);
+	border-radius: 6px;
+    box-shadow: 6px 1px 15px 1px rgba(246, 239, 229, 0.333);
+    animation: scale infinite 10s linear;
+}
+
+.planner-cover {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: linear-gradient(135deg, rgb(0, 0, 0) 25%, transparent 25%) -50px 0,
+		linear-gradient(225deg, black 25%, transparent 25%) -50px 0,
+		linear-gradient(315deg, black 25%, transparent 25%),
+		linear-gradient(45deg, black 25%, transparent 25%);
+	background-size: 2em 2em;
+	color: #ddddddaf;
+    margin-left: 10%;
+}
+
+.planner-cover::before {
+	content: "";
+	position: absolute;
+	width: 20px;
+	right: 20px;
+	top: 0;
+	bottom: 0;
+	background-color: #200a56;
+}
+
+.homeTitle {
+	font-family: "Petemoss", cursive;
+	font-size: 63px;
+	font-weight: 300;
+	color: #6032d6;
+    display: flex;
+    align-items: center;
+    gap:20px;
+    text-decoration: 1px underline wavy;
+    text-underline-offset: 10px;
+}
+
+.binderClip {
+    transform: rotate(180deg);
+    transform: scale(0.3);
+    position: absolute;
+    top:-270px;
+    left: 160px;
+}
+
+@keyframes scale {
+    0% {
+      scale: 1;
+    }
+    50% {
+      scale: 1.1;
+    }
+    100% {
+      scale: 1;
+    }
+  }
