@@ -29,6 +29,10 @@
 
 > 4 themes are available to toggle between.
 
+
+<img width="344" alt="image" src="https://github.com/navidasaman/diary-app/assets/119083568/d26e818a-8122-4db4-9e72-74d2d1bbdaa6">
+> Front page placeholder
+
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Getting Started with Create React App
 
