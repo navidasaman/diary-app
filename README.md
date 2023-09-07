@@ -1,3 +1,6 @@
+react icons Font Awesome 5 from project [Font Awesome 5](https://fontawesome.com/
+) used under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+
 # Diary app
 ## Thus far:
 
