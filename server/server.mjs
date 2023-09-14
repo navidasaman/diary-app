@@ -30,9 +30,9 @@ connection.connect((err) => {
 });
 
 //----------------------------- ENDPOINTS FOR DIARY ENTRIES -----------------------------//
-// Route handler for the HTTP GET request at /api/get endpoint
+// Route handler for the HTTP GET request at endpoint
 app.get('[edited out, sensitive data]', (req, res) => {
-    // Retrieves everything from the diaryentry table (to be able to showcase it, see component DiaryPosts.tsx)
+    // Retrieves everything from the table (to be able to showcase it, see component DiaryPosts.tsx)
     const query = "SELECT * FROM [edited out, sensitive data]";
     // Catches error
     connection.query(query, (err, result) => {
@@ -45,7 +45,7 @@ app.get('[edited out, sensitive data]', (req, res) => {
     });
 });
 
-// Route handler for the URL /api/create executing a POST request with request body values inserted into database (also see react component DiaryEntry.tsx)
+// Route handler for the URL executing a POST request with request body values inserted into database (also see react component DiaryEntry.tsx)
 app.post('[edited out, sensitive data]', (req, res) => {
     // values that are sent in the request body
     const title = req.body.title;
@@ -53,7 +53,7 @@ app.post('[edited out, sensitive data]', (req, res) => {
     const date = req.body.date;
 
     // Inserts the request body values + id into database via a query
-    const query = `INSERT INTO [edited out, sensitive data] `;
+    const query = `INSERT INTO [edited out, sensitive data] VALUES [edited out, sensitive data]`;
     const values = [id, title, post, date];
 
     // catches query errors
@@ -71,9 +71,9 @@ app.post('[edited out, sensitive data]', (req, res) => {
 });
 
 // Route handler for delete request at the specified endpoint with 
-app.delete('/api/delete/:id', (req, res) => {
+app.delete('[edited out, sensitive data]', (req, res) => {
     const id = req.params.id; // rq.params  object contains the values of the route parameter wherein the id is retrieved
-    const query = `DELETE FROM [edited out, sensitive data]`;
+    const query = `DELETE FROM [edited out, sensitive data] WHERE [edited out, sensitive data] = ?`;
     const values = [id];
     //Cathes error
     connection.query(query, values, (err, result) => {
@@ -96,7 +96,7 @@ app.put('[edited out, sensitive data]', (req, res) => {
 
     // if the post with the specific id exists the query updates the post
     if (postId) {
-        const editQuery = 'UPDATE [edited out, sensitive data]?';
+        const editQuery = 'UPDATE [edited out, sensitive data] SET [edited out, sensitive data] = ?, [edited out, sensitive data] = ? WHERE [edited out, sensitive data] = ?';
         const editValues = [updatedTitle, updatedContent, postId];
         // Query result handling
         connection.query(editQuery, editValues, (err, result) => {
@@ -109,7 +109,7 @@ app.put('[edited out, sensitive data]', (req, res) => {
             res.json({ message: 'Edit successful' });
         });
     } else { // or else a new post will be made if the existing id does not exist to be updated
-        const createQuery = '[edited out, sensitive data]';
+        const createQuery = `INSERT INTO [edited out, sensitive data] VALUES [edited out, sensitive data]`;
         const createValues = [updatedTitle, updatedContent];
 
         connection.query(createQuery, createValues, (err, result) => {
@@ -147,11 +147,11 @@ app.post('[edited out, sensitive data]', (req, res) => {
     const title = req.body.title;
     const start = req.body.start;
     const end = req.body.end;
-    const description = req.body.description;
-    console.log(req.body.description)
+    const description = req.body.extendedProps.description;
+    console.log(req.body.extendedProps.description)
 
     // Inserts the request body values into the database via a query
-    const calendarEventsQuery = `INSERT INTO [edited out, sensitive data]`;
+    const calendarEventsQuery = `INSERT INTO [edited out, sensitive data] VALUES [edited out, sensitive data]`;
     const values = [calendarID, title, start, end, description];
 
     // catches query errors
@@ -169,7 +169,7 @@ app.post('[edited out, sensitive data]', (req, res) => {
 // Delete events
 app.delete('[edited out, sensitive data]', (req, res) => {
     const eID = req.params.eID;
-    const calendarEventsQuery = `DELETE FROM calendarevents where id = ?`;
+    const calendarEventsQuery = `DELETE FROM [edited out, sensitive data] where [edited out, sensitive data] = ?`;
     const values = [eID];
 
     connection.query(calendarEventsQuery, values, (err, res) => {
@@ -187,7 +187,7 @@ app.delete('[edited out, sensitive data]', (req, res) => {
 app.put('[edited out, sensitive data]', (req, res) => {
     const editEventId = req.params.editEventId;
     const editTitle = req.body.title;
-    const editDescription = req.body.description;
+    const editDescription = req.body.extendedProps.description;
 
     const editStartDate = req.body.start ? new Date(req.body.start) : null;
     const editEndDate = req.body.end ? new Date(req.body.end) : null;
@@ -204,9 +204,8 @@ app.put('[edited out, sensitive data]', (req, res) => {
   
     const idString = editEventId.toString();
   
-    const calendarEventsQuery ='UPDATE [edited out, sensitive data]';
+    const calendarEventsQuery = `UPDATE [edited out, sensitive data]`;    
     const editValues = [editTitle, editStart, editEnd, editDescription, idString];
-  
     connection.query(calendarEventsQuery, editValues, (err, result) => {
       if (err) {
         console.error('Error in editing MySQL query:', err);
