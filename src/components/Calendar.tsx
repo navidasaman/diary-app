@@ -1,20 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../css/Calendar.css';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import { EventInput } from '@fullcalendar/core';
+import axios from 'axios';
 
 function Calendar() {
   // State variable to hold events
-  const [events, setEvents] = useState<EventInput[]>([]); 
+  const [events, setEvents] = useState<EventInput[]>([]);
   const [showPopup, setShowPopup] = useState(false);
-  const [popupTitle, setPopupTitle] = useState('');
-  const [popupDescription, setPopupDescription] = useState('');
-  const [popupStartDate, setPopupStartDate] = useState('');
-  const [popupEndDate, setPopupEndDate] = useState('');
+  const [title, setPopupTitle] = useState('');
+  const [description, setPopupDescription] = useState('');
+  const [start, setPopupStartDate] = useState('');
+  const [end, setPopupEndDate] = useState('');
   const [editEventId, setEditEventId] = useState('');
+  const [eventId, setEventId] = useState('');
+
+  // To refresh window
+  const handleRefresh = () => {
+    window.location.reload();
+  }
+
+  useEffect(() => {
+    axios.get('http://localhost:3001/api/getevents')
+      .then((response) => {
+        setEvents(response.data);
+        console.log(response.data);
+      });
+  }, []); // don't forget that useEffect hooks runs after each render! therefore an emty dependency array must be added []! 
 
   // To select date in calendar which is extracted from the arg and stored into the state variabales
   const handleDateSelect = (arg: any) => {
@@ -26,68 +41,94 @@ function Calendar() {
   // function handleEventClick which fires as a slot in the calendar is pressed
   const handleEventClick = (arg: any) => {
     const event = arg.event; // the click event object is extracted from the arg object which contains the properties in the line below
-    const { id, title, start, end, extendedProps } = event; // extracts the following properties from the event object
+    const { id, title, start, end, description } = event; // extracts the following properties from the event object
     // state setter functions to set the state of the variables
     setPopupTitle(title);
-    setPopupStartDate(start.toISOString());
-    setPopupEndDate(end.toISOString());
-    setPopupDescription(extendedProps.description || '');
+    setPopupDescription(description ? description : '');
+    setPopupStartDate(start ? start.toLocaleString() : '');
+    setPopupEndDate(end ? end.toLocaleString() : '');
     setEditEventId(id);
     setShowPopup(true);
+    setEventId(new Date().toISOString());
   };
 
   // function which handles the input to submit the edited or newly created event
   const handlePopupSubmit = () => {
-    // for the code to be submitted the fields must be entered appropriatly
-    if (popupTitle && popupStartDate && popupEndDate) {
-      // Creates an event with the following properties:
-      const newEvent: EventInput = {
-        id: editEventId || new Date().toISOString(),
-        title: popupTitle,
-        start: popupStartDate,
-        end: popupEndDate,
+    // for the code to be submitted, the fields must be entered appropriately
+    if (title && start && end) {
+      // Creates an event with the following properties
+      const newEvent = {
+        id: editEventId || eventId,
+        title: title,
+        description: description,
+        start: start,
+        end: end,
         allDay: false,
-        extendedProps: {
-          description: popupDescription,
-        },
       };
-      
-      // To update event if it is being edited otherwise set the new event
+
+      // To update event if it is being edited, otherwise set the new event
       if (editEventId) {
-        const updatedEvents = events.map((event) => {
-          if (event.id === editEventId) {
-            return { ...event, ...newEvent };
-          }
-          return event;
-        });
-        setEvents(updatedEvents);
-        setEditEventId('');
+        axios
+          .put(`http://localhost:3001/api/editevent/${editEventId}`, newEvent)
+          .then(() => {
+            console.log('Event updated successfully');
+
+            // Update the events state with the updated event
+            const updatedEvents = events.map((event) => {
+              if (event.id === editEventId) {
+                return { ...event, ...newEvent };
+              }
+              return event;
+            });
+            setEvents(updatedEvents);
+            setEditEventId('');
+          })
+          .catch((error) => {
+            console.error(error);
+          });
       } else {
-        setEvents([...events, newEvent]);
+        // Make an API call to store the event in the database
+        axios
+          .post('http://localhost:3001/api/events', newEvent)
+          .then((request) => {
+            console.log('Event added successfully');
+            // Update the events state with the new event
+            setEvents([...events, newEvent]);
+          })
+          .catch((error) => {
+            console.error(error);
+          });
       }
-      setShowPopup(false);
-      setPopupTitle('');
-      setPopupDescription('');
-      setPopupStartDate('');
-      setPopupEndDate('');
     }
+        setShowPopup(false);
   };
 
   // to be able to delete event
   const handleEventDelete = () => {
-    const updatedEvents = events.filter((event) => event.id !== editEventId); // if the event id does not match with the edited event id it will be filtered out
-    setEvents(updatedEvents); // the events are updated with the filtered array above
-    // the state variables are reset
-    setShowPopup(false);
-    setPopupTitle('');
-    setPopupDescription('');
-    setPopupStartDate('');
-    setPopupEndDate('');
-    setEditEventId('');
+    const eID = editEventId || eventId;
+    const updatedEvents = events.filter((event) => event.id !== eID);
+    axios.delete(`http://localhost:3001/api/deleteevent/${eID}`)
+      .then((response) => {
+        console.log('Event deleted successfully');
+        setEvents(updatedEvents); // Update the events state with updatedEvents
+        // Reset the state variables
+        setShowPopup(false);
+        setPopupTitle('');
+        setPopupDescription('');
+        setPopupStartDate('');
+        setPopupEndDate('');
+        setEditEventId('');
+        setEvents(updatedEvents);
+        console.error(response.data.message);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+    handleRefresh();
   };
 
- return (
-    <div className='calendar'>
+  return (
+    <form className='calendar' onSubmit={handlePopupSubmit}>
       <div className='calendarUI'>
         <FullCalendar
           plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
@@ -96,24 +137,24 @@ function Calendar() {
           editable={true} // will let user drag and resize events
           dayMaxEvents={true} // limits number of max events shown in one day
           events={events}
-          select={handleDateSelect} 
+          select={handleDateSelect}
           eventClick={handleEventClick}
           eventContent={(arg) => (
             <div className='single-day-event'>
-                <div className='dot'></div>
-                <div className='title2'>{arg.event.title}</div>
+              <div className='dot'></div>
+              <div className='title2'>{arg.event.title}</div>
             </div>
           )}
           // shows what the header will contain
           headerToolbar={{
-            start: 'dayGridMonth, timeGridWeek, timeGridDay', 
+            start: 'dayGridMonth, timeGridWeek, timeGridDay',
             center: 'title',
-            end: 'today prev,next', 
+            end: 'today prev,next',
           }}
           height={'88.6vh'}
         />
-              <button className='addEventsButton' onClick={handleDateSelect} >
-                {editEventId ? 'Update Event' : 'Add Event'}
+        <button className='addEventsButton' onClick={handleDateSelect} >
+          {editEventId ? 'Update Event' : 'Add Event'}
         </button>
       </div>
       {/* Showcases the popup with its properties */}
@@ -123,39 +164,39 @@ function Calendar() {
           <div>
             <input
               type="text"
-              value={popupTitle}
+              value={title}
               onChange={(e) => setPopupTitle(e.target.value)}
               placeholder="Event"
             />
             <textarea
               style={{ height: '80px' }}
-              value={popupDescription}
+              value={description}
               onChange={(e) => setPopupDescription(e.target.value)}
               placeholder="Description"
             />
-            <label>Start Date:</label>
-            <input
+            <label className='datePicker'>Start Date:</label>
+            <input 
               type="datetime-local"
-              value={popupStartDate}
+              value={start}
               onChange={(e) => setPopupStartDate(e.target.value)}
             />
-            <label>End Date:</label>
-            <input
+            <label className='datePicker'>End Date:</label>
+            <input 
               type="datetime-local"
-              value={popupEndDate}
+              value={end}
               onChange={(e) => setPopupEndDate(e.target.value)}
             />
-            <button onClick={handlePopupSubmit}>
+            <button>
               {editEventId ? 'Update Event' : 'Add Event'}
             </button>
-            {editEventId && (
+            {(editEventId || eventId) && (
               <button onClick={handleEventDelete}>Delete Event</button>
             )}
             <button onClick={() => setShowPopup(false)}>Cancel</button>
           </div>
         </div>
       )}
-    </div>
+    </form>
 
   );
 }
