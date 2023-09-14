@@ -76,22 +76,11 @@
     border: 1px solid #dddddd45;
 }
 
-.popupDesc {
-    text-transform: lowercase;
-    letter-spacing: 5px;
-    padding-right:12%;
-    font-size: calc(37px - 1vw);
-    font-weight: 100;
-    color: #ffffffc3;
-    cursor: context-menu;
-    text-align: center;
-}
-
-label {
+.datePicker {
     display: block;
     text-transform: lowercase;
     letter-spacing: 3px;
-    font-size: calc(20px - 1vw);
+    font-size: calc(30px - 1vw);
     font-weight: 100;
     color: #ffffffc3;
     cursor: context-menu;
