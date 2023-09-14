@@ -24,7 +24,7 @@ function Calendar() {
   }
 
   useEffect(() => {
-    axios.get('http://localhost:3001/api/getevents')
+    axios.get('[sensitive data, edited out]')
       .then((response) => {
         setEvents(response.data);
         console.log(response.data);
@@ -41,10 +41,10 @@ function Calendar() {
   // function handleEventClick which fires as a slot in the calendar is pressed
   const handleEventClick = (arg: any) => {
     const event = arg.event; // the click event object is extracted from the arg object which contains the properties in the line below
-    const { id, title, start, end, description } = event; // extracts the following properties from the event object
+    const { id, title, start, end, extendedProps } = event; // extracts the following properties from the event object
     // state setter functions to set the state of the variables
     setPopupTitle(title);
-    setPopupDescription(description ? description : '');
+    setPopupDescription(extendedProps.description || '');
     setPopupStartDate(start ? start.toLocaleString() : '');
     setPopupEndDate(end ? end.toLocaleString() : '');
     setEditEventId(id);
@@ -54,22 +54,22 @@ function Calendar() {
 
   // function which handles the input to submit the edited or newly created event
   const handlePopupSubmit = () => {
-    // for the code to be submitted, the fields must be entered appropriately
+    // for the code to be submitted, the fields must be entered appropriately 
     if (title && start && end) {
-      // Creates an event with the following properties
+      // Creates an event with the following properties 
       const newEvent = {
         id: editEventId || eventId,
         title: title,
-        description: description,
         start: start,
         end: end,
         allDay: false,
+        extendedProps: {
+          description: description
+        }
       };
-
-      // To update event if it is being edited, otherwise set the new event
+      // To update event if it is being edited, otherwise set the new event 
       if (editEventId) {
-        axios
-          .put(`http://localhost:3001/api/editevent/${editEventId}`, newEvent)
+        axios.put(`[sensitive data, edited out]`, newEvent)
           .then(() => {
             console.log('Event updated successfully');
 
@@ -88,8 +88,7 @@ function Calendar() {
           });
       } else {
         // Make an API call to store the event in the database
-        axios
-          .post('http://localhost:3001/api/events', newEvent)
+        axios.post('[sensitive data, edited out]', newEvent)
           .then((request) => {
             console.log('Event added successfully');
             // Update the events state with the new event
@@ -100,14 +99,14 @@ function Calendar() {
           });
       }
     }
-        setShowPopup(false);
+    setShowPopup(false);
   };
 
   // to be able to delete event
   const handleEventDelete = () => {
     const eID = editEventId || eventId;
     const updatedEvents = events.filter((event) => event.id !== eID);
-    axios.delete(`http://localhost:3001/api/deleteevent/${eID}`)
+    axios.delete(`[sensitive data, edited out]`)
       .then((response) => {
         console.log('Event deleted successfully');
         setEvents(updatedEvents); // Update the events state with updatedEvents
