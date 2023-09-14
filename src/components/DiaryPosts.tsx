@@ -77,7 +77,7 @@ export default function DiaryPosts() {
             <div className='postContainer'>
                 {posts.map((post) => (
                     <div key={post.id} className='post'>
-                        <div className='date'>{post.date}
+                        <div className='date'>{post.date.toLocaleString().slice(0, 16).replace('T', ' | ')}
                             <div className='editPost'>
                                 < FaEdit onClick={() => handleEditPost(post.id, post.title, post.post)} />
                             </div>
